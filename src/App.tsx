@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { UserForm } from './components/Form/UserForm';
 import { PhotoUpload } from './components/PhotoUpload/PhotoUpload';
 import { PosterPreview } from './components/PosterPreview/PosterPreview';
@@ -14,6 +14,7 @@ function App() {
     photoUrl: null,
   });
   const [isGenerating, setIsGenerating] = useState(false);
+  const lastSubmittedData = useRef<string | null>(null);
 
   // Add the Google Apps Script Web App URL
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzwdotA8XDcTWs444vsJRgZkcIZ9f1mbrQFGikkiZXTdjz12i5KPERpXz5tWUodOM9B/exec";
@@ -21,6 +22,19 @@ function App() {
   const submitToGoogleSheets = async () => {
     // Only submit if they provided at least some data
     if (!userData.fullName && !userData.phoneNumber && !userData.location) return;
+
+    // Prevent duplicate submissions for the same user data
+    const currentDataStr = JSON.stringify({
+      fullName: userData.fullName,
+      phoneNumber: userData.phoneNumber,
+      location: userData.location
+    });
+
+    if (lastSubmittedData.current === currentDataStr) {
+      return; // Already submitted this exact data
+    }
+    
+    lastSubmittedData.current = currentDataStr;
 
     try {
       // We send as text/plain to bypass strict CORS preflight on Google Apps Script,
@@ -30,11 +44,7 @@ function App() {
         headers: {
           "Content-Type": "text/plain;charset=utf-8", 
         },
-        body: JSON.stringify({
-          fullName: userData.fullName,
-          phoneNumber: userData.phoneNumber,
-          location: userData.location
-        })
+        body: currentDataStr
       }).catch(err => console.error("Background sync failed:", err));
     } catch (e) {
       console.error("Failed to queue submission:", e);
