@@ -132,7 +132,7 @@ function App() {
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg">
               జాతీయ అహింసా <br />
-              <span className="text-[#ffca08]">ధ్యాన మహోత్సవాలు</span>
+              <span className="text-[#ffca08]">ధ్యాన మహాసభలు</span>
             </h1>
             <p className="text-xl md:text-2xl text-green-100 font-light mb-8 max-w-2xl mx-auto lg:mx-0">
               నేను సైతం అహింసా జగత్ కోసం. <br/>
