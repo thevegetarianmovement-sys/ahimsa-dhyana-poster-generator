@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { UserForm } from './components/Form/UserForm';
 import { PhotoUpload } from './components/PhotoUpload/PhotoUpload';
 import { PosterPreview } from './components/PosterPreview/PosterPreview';
