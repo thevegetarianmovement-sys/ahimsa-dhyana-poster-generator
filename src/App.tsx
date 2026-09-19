@@ -67,7 +67,20 @@ function App() {
     });
   };
 
+  const validateInput = (): boolean => {
+    // Only validate if they typed something in the phone number field
+    if (userData.phoneNumber) {
+      const phoneDigits = userData.phoneNumber.replace(/\D/g, '');
+      if (phoneDigits.length !== 10) {
+        alert("Please enter a valid 10-digit phone number.");
+        return false;
+      }
+    }
+    return true;
+  };
+
   const handleDownload = async () => {
+    if (!validateInput()) return;
     setIsGenerating(true);
     try {
       // Fire and forget data submission in the background
@@ -91,6 +104,7 @@ function App() {
   };
 
   const handleShare = async () => {
+    if (!validateInput()) return;
     setIsGenerating(true);
     try {
       // Fire and forget data submission in the background

@@ -69,16 +69,16 @@ export const drawPoster = async (
     
     if (hasBoth) {
       // Draw name slightly higher, location slightly lower
-      ctx.font = "bold 24px sans-serif";
+      ctx.font = "bold 24px 'Poppins', sans-serif";
       ctx.fillText(userData.fullName, textCenterX, textCenterY - 12);
       
-      ctx.font = "18px sans-serif";
+      ctx.font = "600 18px 'Poppins', sans-serif";
       // Use a slight opacity or yellow color for location to differentiate
       ctx.fillStyle = "#fef08a"; // Tailwind yellow-200
       ctx.fillText(userData.location, textCenterX, textCenterY + 14);
     } else {
       // Draw just the one available centered
-      ctx.font = "bold 26px sans-serif";
+      ctx.font = "bold 26px 'Poppins', sans-serif";
       const text = userData.fullName || userData.location;
       ctx.fillText(text, textCenterX, textCenterY);
     }
