@@ -116,8 +116,8 @@ function App() {
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           files: [file],
-          title: 'Ahimsa Dhyana Mahotsavalu',
-          text: 'Join me for the National Ahimsa Meditation Mahotsavalu! Live & Let Live.'
+          title: 'Ahimsa Dhyana Mahasabhalu',
+          text: 'నేను సైతం అహింసా జగత్ కోసం... మీరు కూడా ఇలాంటి పోస్టర్ మీ పేరు, మీ ఫోటోతో పెట్టాలనుకుంటున్నారా?... అయితే వెంటనే ఈ కింద ఉన్న లింక్ ను క్లిక్ చేసి మీ పేరు,  phone నెంబర్ ఊరు పేరు, ఫోటో upload చేసి మీ పోస్టర్ ను download చేసి అహింసా  సందేశాన్ని అందరికీ share చేయండి. లోకకల్యాణ కార్యక్రమం లో మీరు భాగస్వాములు కండి. జయహో అహింసా ధ్యాన మహాసభలు.\nhttps://ahimsa-dhyana-mahasabalu.vercel.app/'
         });
       } else {
         alert("Your browser doesn't support direct image sharing to WhatsApp. The poster will be downloaded so you can share it manually.");
@@ -154,20 +154,20 @@ function App() {
             <div className="inline-block px-4 py-1.5 rounded-full border border-[#ffca08]/30 bg-[#ffca08]/10 text-[#ffca08] font-semibold text-sm tracking-widest mb-6 uppercase shadow-sm">
               Live & Let Live
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg">
+            <h1 className="font-['Noto_Sans_Telugu'] text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg tracking-wide">
               జాతీయ అహింసా <br />
               <span className="text-[#ffca08]">ధ్యాన మహాసభలు</span>
             </h1>
-            <p className="text-xl md:text-2xl text-green-100 font-light mb-8 max-w-2xl mx-auto lg:mx-0">
+            <p className="font-['Noto_Sans_Telugu'] text-xl md:text-2xl text-green-100 font-light mb-8 max-w-2xl mx-auto lg:mx-0">
               నేను సైతం అహింసా జగత్ కోసం. <br/>
-              Create and share your personalized flyer below.
+              <span className="font-sans">Create and share your personalized flyer below.</span>
             </p>
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-              <span className="px-5 py-2.5 rounded-lg bg-[#174d1c] border border-[#246b2b] text-white font-medium flex items-center gap-2 shadow-md">
+              <span className="font-['Noto_Sans_Telugu'] px-5 py-2.5 rounded-lg bg-[#174d1c] border border-[#246b2b] text-white font-medium flex items-center gap-2 shadow-md">
                 <svg className="w-5 h-5 text-[#ffca08]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 2026 అక్టోబర్ 1 - 5
               </span>
-              <span className="px-5 py-2.5 rounded-lg bg-[#174d1c] border border-[#246b2b] text-[#ffca08] font-bold shadow-md">
+              <span className="font-['Noto_Sans_Telugu'] px-5 py-2.5 rounded-lg bg-[#174d1c] border border-[#246b2b] text-[#ffca08] font-bold shadow-md">
                 ప్రవేశం ఉచితం
               </span>
             </div>
@@ -210,6 +210,13 @@ function App() {
           </div>
         </div>
       </main>
+
+      {/* Subtle Footer Signature */}
+      <footer className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pb-6 text-left flex justify-start">
+        <a href="#" className="font-['Poppins'] text-xs font-medium text-green-200/30 hover:text-[#ffca08] transition-colors duration-300 tracking-wider uppercase">
+          Developed by Sai Ram Lohith
+        </a>
+      </footer>
     </div>
   );
 }
